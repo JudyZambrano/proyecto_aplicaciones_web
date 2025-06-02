@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ULEAM - Seguimiento</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+<img src="logo_uleam.png" alt="Logo ULEAM" style="width: 180px; display: block; margin: 0 auto;">
+  <div class="container">
+    <h1>ULEAM</h1>
+    <h2>Seguimiento de Persona</h2>
+    <form id="seguimientoForm">
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" required />
+
+      <label for="tipo_apoyo">Tipo de apoyo:</label>
+      <select id="tipo_apoyo" required>
+        <option value="">Seleccione</option>
+        <option>Psicológico</option>
+        <option>Académico</option>
+        <option>Técnico</option>
+        <option>Otro</option>
+      </select>
+
+      <label for="responsable">Responsable del seguimiento:</label>
+      <input type="text" id="responsable" required />
+
+      <label for="acciones">Acciones realizadas:</label>
+      <textarea id="acciones" rows="3" required></textarea>
+
+      <label for="observaciones">Observaciones:</label>
+      <textarea id="observaciones" rows="3"></textarea>
+
+      <label for="proxima_fecha">Próxima fecha de seguimiento:</label>
+      <input type="date" id="proxima_fecha" />
+
+      <button type="submit">Guardar</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("seguimientoForm").addEventListener("submit", function (e) {
+      const fecha = document.getElementById("fecha").value;
+      const responsable = document.getElementById("responsable").value.trim();
+      if (!fecha || !responsable) {
+        alert("Campos obligatorios incompletos.");
+        e.preventDefault();
+      } else {
+        e.preventDefault();
+        alert("Seguimiento guardado.");
+        window.location.href = "inicio.html";
+      }
+    });
+  </script>
+</body>
+</html>
